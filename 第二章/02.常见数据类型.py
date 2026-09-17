@@ -98,3 +98,7 @@ age = 18
 profession = "电子信息工程"
 hobby = "睡觉，吃好吃的"
 print(f"大家好，我是{name}，今年{age}岁，学的专业是{profession}，爱好是{hobby}")
+
+
+
+
