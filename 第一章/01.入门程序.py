@@ -1,4 +1,4 @@
-# 需求：往控制台输出hello world，hello python，快捷键：Ctrl+/
+# 需求：往控制台输出hello world，hello python，注释：快捷键：Ctrl+/
 # 字体放大缩小快捷鍵ctrl +放大，ctrl -缩小
 print("Hello World")
 print("Hello Python")

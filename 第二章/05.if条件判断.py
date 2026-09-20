@@ -143,17 +143,37 @@ else:
 
 
 
-# 案例：居民用电电费计算：根据输入的用电度数，计算电费
-# 电价规则：
-# 第一档：2880度以下，电费单价为0.4883元/度
-# 第二档：2880-4800度，电费单价0.5383元/度
-# 第三档：4800度以上，电费单价0.7383元/度
+# 北京市居民年度用电电费计算：根据输入的用电度数，计算电费
+# 北京市居民电费采用阶梯电价计价方式，所谓阶梯电价是指按照用户消费的电量分段定价，用电价格随用电量增加呈阶梯状逐级递增的一种电价定价机制。
+# - 阶梯电价规则：
+#   1. 第一档：2880度以下，电费单价0.4883元/度
+#   2. 第二档：2880-4800度，电费单价0.5383元/度
+#   3. 第三档：4800度以上，电费单价0.7883元/度
+'''
+1.接受用户输入数据
+2.首先要判断电费在哪一个档位
+3.计算这一档位电费，再加上上一个档位的上线电费
+4.输出最终电费
 
-du = float(input("请输入用电度数："))
+'''
+usage_elec = float(input("请输入用电度数："))
+#定义电价
+first_sprice = 0.4883
+second_price = 0.5383
+third_price  = 0.7883
+#定义前两阶段用电上线
+first_max = 2880
+second_max = 4800
 
-if du < 2880 :
-    print(f"您的电费是:{du * 0.4883}元")
-elif 2880 <= du <=4800 :
-    print(f"您的电费是:{du * 0.5383}元")
+total_usage = 0.0
+
+if usage_elec < first_max :
+    total_usage = usage_elec * first_sprice
+    
+elif first_max <= usage_elec <= second_max :
+    total_usage = (usage_elec -first_max) * second_max + first_max * first_sprice
+    
 else:
-    print(f"您的电费是:{du * 0.7383}元")
+    total_usage = first_max * first_sprice + (second_max - first_max) * second_price + (usage_elec - second_max) * third_price
+
+print(f"{usage_elec}度的电费是:{total_usage}元")
