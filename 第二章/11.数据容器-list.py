@@ -189,3 +189,65 @@ rever（）         反转列表元素
 #     if num not in new_list:
 #         new_list.append(num)
 # print("列表去重",new_list)
+
+
+# # 案例3： 生成 1 - 20 的平方列表 ---> range（1，21）
+# # 方式一：用循环遍历，取出元素再存入列表
+# list1 = []
+# for i in range(1,21):
+#     list1.append(i**2)
+# print(list1)
+#
+# # 方式二：
+'''
+列表推导式---> 按照一定的规则快速生成一个列表 --> 
+语法格式1：[要输入的值 for i in 列表/序列]     
+语法格式2：[要输入的值 for i in 列表/序列 if条件判断语句]  # 如果if条件成立则将值导入新列表中
+'''
+# num_list = [i**2 for i in range(1,21)]
+# print(num_list)
+#
+#
+# # 案例4：从一个数字列表中提取所有的偶数，并计算其平方，组成一个新的列表
+# num_list1 = [32,87,9,23,1,545,78,44,98,2,4,6,8,10]
+# new_list = [num ** 2 for num in num_list1 if num % 2 ==0]
+#
+# print(new_list)
+
+
+# # list ---练习1：将如下多个列表合成一个列表，并去除重复元素，排好序（升序）后输出控制台
+# list1 = ['M', 'A', 'C', 'E', 'F', 'G', 'H', 'L', 'N', 'I', 'J', 'K', 'O']
+# list2 = ['X', 'Z', 'T', 'Y', 'D', 'E', 'F', 'G']
+# list3 = ['W', 'A', 'S', 'D']
+#
+# # 合并1 列表相加
+# new_list1 = list1 + list2 + list3
+# print("合并后",new_list1)
+#
+# # # 合并2 解包
+# # new_list2 = [*list1, *list2, *list3]
+# # print(new_list2)
+#
+# # 去重
+# fin_list =[]
+# for s in new_list1:
+#     if s not in fin_list:
+#         fin_list.append(s)
+# print("去重",fin_list)
+#
+# # 排序，升序，输出
+#
+# fin_list.sort()
+# print("排序",fin_list)
+
+
+
+# # 练习2： 将如下列表中能被 3 或 5 整除的元素提出来，并获取这些数字对应的平方，组成一个新的列表
+# list4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+# nun_list  = [n**2 for n in list4 if n % 3 == 0 or n % 5 == 0]
+# print(nun_list)
+
+# 练习3： 将如下列表中的正数提取出来，封装为一个新的列表
+list5 = [11, 2, 31, 4, -5, 15, 17, 28, 49, 10, -11, 16, 54, -14, 36, -16, 87, -39]
+num_list3 = [n for n in list5 if n > 0]
+print(num_list3)
