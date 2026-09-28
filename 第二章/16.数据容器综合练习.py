@@ -68,9 +68,14 @@ while True:
             else:
                 print('要查询的学生信息不在系统中！')
         case '5': # 查询全部学生成绩
-            for name in student_scores.keys():
-                student_info = student_scores[name]
-                print(f"学生:{name} \t\t 语文成绩:{student_info['语文成绩']} \t\t 数学成绩:{student_info['数学成绩']} \t\t 英语成绩:{student_info['英语成绩']}")
+            # 方式一：
+            # for name in student_scores.keys():
+            #     student_info = student_scores[name]
+            #     print(f"学生:{name} \t\t 语文成绩:{student_info['语文成绩']} \t\t 数学成绩:{student_info['数学成绩']} \t\t 英语成绩:{student_info['英语成绩']}")
+
+            # 方式二：
+            for name,scores in student_scores.items():
+                print(f"学生:{name} \t\t 语文成绩:{scores['语文成绩']} \t\t 数学成绩:{scores['数学成绩']} \t\t 英语成绩:{scores['英语成绩']}")
         case '6': # 统计出班级语文、数学、英语的最高分、最低分、平均分，并输出每个学科最高分最低分学生姓名
                   # student_scores = {name1:{’语文‘:XX,’数学‘:XX,’英语‘:XX},name2...}
             if not student_scores: #判断是否有信息
